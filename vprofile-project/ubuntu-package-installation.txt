@@ -1,0 +1,22 @@
+#install webapp packages
+sudo apt update
+sudo apt upgrade -y
+sudo apt install openjdk-17-jdk -y
+sudo apt install tomcat10 tomcat10-admin tomcat10-docs tomcat10-common -y
+sudo snap install aws-cli --classic
+
+#Download Build artifact from S3
+
+aws s3 cp <artifact location in s3> .
+
+#Configure and restart tomcat10
+sudo systemctl daemon-reload
+sudo systemctl stop tomcat10
+sudo rm -rf /var/lib/tomcat10/webapps/ROOT
+sudo cp -r vprofile-v2.war  /var/lib/tomcat10/webapps/ROOT.war #copy vprofile-v2 to ROOT.war
+sudo systemctl start tomcat10
+ls /var/lib/tomcat10/webapps/ # view the extracted ROOT file, the ROOT.war >>> ROOT
+
+
+
+

@@ -1,0 +1,46 @@
+1. Download Maven 3.9.9
+Run the following command to download Maven 3.9.9:
+
+wget https://downloads.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz
+
+
+2. Extract the Archive
+Extract the downloaded tarball to /opt or another directory of your choice:
+
+sudo tar -xvzf apache-maven-3.9.9-bin.tar.gz -C /opt/
+
+Rename the extracted folder to maven for convenience:
+
+sudo mv /opt/apache-maven-3.9.9 /opt/maven
+
+
+3. Set Up Environment Variables
+Add Maven's bin directory to your system's PATH by creating or editing the environment configuration file:
+
+sudo nano /etc/profile.d/maven.sh
+
+Add the following lines to the file:
+
+export MAVEN_HOME=/opt/maven
+export PATH=$MAVEN_HOME/bin:$PATH
+
+Save and close the file, then apply the changes:
+
+source /etc/profile.d/maven.sh
+
+
+4. Verify Installation
+Check the Maven version to confirm the installation:
+mvn -version
+
+
+You should see output similar to:
+
+Apache Maven 3.9.9 (your specific build details)
+Java version: (your Java version)
+
+
+5. Cleanup (Optional)
+Remove the tarball to free up space:
+
+rm apache-maven-3.9.9-bin.tar.gz

@@ -1,0 +1,11 @@
+# install mariabd client
+sudo apt install mariadb-server -y
+
+# access rds database
+mysql -h vprofile-db.cn2q64wga3a3.us-east-1.rds.amazonaws.com -u Braun Vprofiledatabase -p
+
+#copy database file
+
+mysql -h vprofiledb.chucqcesil3r.eu-central-1.rds.amazonaws.com -u bello demovprofiledb -p < db_backup.sql
+
+show tables; #confirm the database was migrated successfully
